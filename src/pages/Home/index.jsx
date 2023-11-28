@@ -1,11 +1,12 @@
 import api from "../../services/api";
-import { Background, Info, Poster, Container } from "./styles";
+import { Background, Info, Poster, Container,Space } from "./styles";
 import { useState, useEffect } from "react";
 import Button from "../../components/Button/index";
 
 
 function Home() {
   const [movie, setMovie] = useState();
+  const [topMovies, setMovies] = useState()
 
   useEffect(() => {
     async function getMovies() {
@@ -13,11 +14,30 @@ function Home() {
         data: { results },
       } = await api.get("/movie/popular");
 
-      setMovie(results[1]);
+      setMovie(results[0]);
     }
 
-    getMovies();
+      async function getTopMovies() {
+        const {
+          data: { results },
+        } = await api.get("/movie/top_rated");
+  
+        setMovies(results[0]);
+      }
+
+    
+
+      getMovies();
+      getTopMovies()
+
+
   }, []);
+
+
+
+
+
+
 
   return (
     <>
@@ -29,10 +49,10 @@ function Home() {
             <Info>
               <h1>{movie.title}</h1>
               <p>{movie.overview}</p>
-              <div>
+              <Space>
               <Button red={true}>Assista Agora</Button>
               <Button red={false}>Assista o Trailer</Button>
-              </div>
+              </Space>
             </Info>
 
 

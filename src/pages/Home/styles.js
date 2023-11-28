@@ -23,6 +23,17 @@ export const Background = styled.div`
   }
 `;
 
+
+export const Space = styled.div `
+
+display: flex;
+gap: 30px;
+
+
+`
+
+
+
 export const Container = styled.div`
 
 
