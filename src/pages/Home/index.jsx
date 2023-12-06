@@ -2,6 +2,8 @@ import api from "../../services/api";
 import { Background, Info, Poster, Container,Space } from "./styles";
 import { useState, useEffect } from "react";
 import Button from "../../components/Button/index";
+import { getImages } from "../../utils/getImages";
+import Slider from "../../components/Slider"
 
 
 function Home() {
@@ -22,7 +24,8 @@ function Home() {
           data: { results },
         } = await api.get("/movie/top_rated");
   
-        setMovies(results[0]);
+        setMovies(results);
+        console.log(results);
       }
 
     
@@ -43,7 +46,7 @@ function Home() {
     <>
       {movie && (
         <Background
-          img={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+          img={getImages(movie.backdrop_path)}
         >
           <Container>
             <Info>
@@ -60,12 +63,14 @@ function Home() {
             <Poster>
               <img
                 alt="movie"
-                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                src={getImages(movie.poster_path)}
               />
             </Poster>
           </Container>
         </Background>
       )}
+
+      {topMovies && <Slider info={topMovies} title={"Top Filmes"}/>}
     </>
   );
 }
