@@ -1,14 +1,35 @@
 import styled from "styled-components";
 
-export const Img = styled.img`
+export const Container = styled.div`
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  z-index: 1;
-  width: 10%;
+  img {
+    width: 20%;
+  }
+`;
 
-  position: absolute;
-  top: 5%;
-  left: 10%;
+export const Menu = styled.ul`
+  display: flex;
+  list-style: none;
+  gap: 50px;
+`;
 
-  border-radius: 20px;
-  background-color: firebrick;
+export const Li = styled.li`
+  
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 30px;
+
+
+  a{
+    text-decoration: none;
+    color: #ffffff;
+    
+  }
 `;

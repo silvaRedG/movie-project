@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import { Swiper, SwiperSlide } from "swiper/react";
 
+
 import { Container } from "./styles";
-import { getImages } from "../../utils/getImages";
+import Card from "../Card";
 
 function Slider({ info, title }) {
   console.log(info, title);
@@ -18,10 +19,7 @@ function Slider({ info, title }) {
       >
         {info.map((item, index) => (
           <SwiperSlide key={index}>
-            <div>
-                <img src={getImages(item.poster_path)} alt="foto-movie" />
-                <h2>{item.original_title}</h2>
-            </div>
+            <Card item={item}/>
           </SwiperSlide>
         ))}
       </Swiper>

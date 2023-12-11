@@ -1,25 +1,29 @@
-import Logo from "../../assets/logo2.png"
-import {Img} from "../Header/style"
+import { Container, Menu, Li } from "./style";
+
+import { Link } from "react-router-dom";
+
+import Logo from "../../assets/logo2.png";
 
 function Header() {
+  return (
+    <Container>
+      <img src={Logo} alt="" />
 
-    function Alert() {
-        alert("oi sou goku")
-    }
+      <Menu>
+        <Li>
+          <Link to={"/"}>Home</Link>
+        </Li>
 
+        <Li>
+          <Link to={"/movies"}>Filmes</Link>
+        </Li>
 
-
-    return (
-        <>
-
-            <Img src={Logo} alt="logo-site" onClick={Alert} />
-
-
-
-        </>
-    )
-
-
+        <Li>
+          <Link to={"/series"}>Séries</Link>
+        </Li>
+      </Menu>
+    </Container>
+  );
 }
 
-export default Header
+export default Header;
