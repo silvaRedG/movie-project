@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
+
+
 export const Background = styled.div`
 
 
 
   background-image: url(${(props) => props.img});
   height: 100vh;
+  width: 100vw;
   background-position: center;
   background-size: cover;
   display: flex;
@@ -17,8 +20,8 @@ export const Background = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
   }
 `;
@@ -53,7 +56,8 @@ max-width: auto;
 export const Info = styled.div`
   z-index: 2;
   padding: 20px;
-  width: 50%;
+  width: 70vw;
+
 
   h1 {
     font-size: 50px;

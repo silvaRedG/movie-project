@@ -10,12 +10,14 @@ export default createGlobalStyle`
     outline: none;
     text-decoration: none;
     font-family: 'EB Garamond', serif;
+ 
 }
 
 
 body{
     
     background: #000000;
+    overflow-x: hidden
 }
 
 
